@@ -6,8 +6,8 @@ require("_telescope")
 require("_whichkey")
 require("_null-ls")
 require("_terminal")
-
-vim.cmd("colorscheme walh-gruvbox")
+require("_autopairs")
+vim.cmd("colorscheme tokyonight")
 
 -- important to import after colorscheme
 require("_statusline")

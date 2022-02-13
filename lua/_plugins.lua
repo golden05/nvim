@@ -72,6 +72,16 @@ return packer.startup(function()
       })
     end,
   })
+    -- nvim-autopairs
+  use("windwp/nvim-autopairs")
+    -- surround
+  use("blackCauldron7/surround.nvim")
+        -- gruvbox
+  use({ "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } })
+        -- tokyonight
+  use("folke/tokyonight.nvim")
+  use("EdenEast/nightfox.nvim")
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

@@ -102,3 +102,4 @@ colors:
 | Normal mode `K`         | Show doc hover            |
 | Normal mode `Space lf`  | Format command            |
 | Normal mode `Space lr`  | Rename command            |
+# nvim
