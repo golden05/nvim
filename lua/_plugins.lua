@@ -84,6 +84,22 @@ return packer.startup(function()
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
+
+  -- Python & Jupyter Notebooks
+  use 'bfredl/nvim-ipy'
+  use 'hkupty/iron.nvim'
+  use 'Vimjas/vim-python-pep8-indent'
+  use {'heavenshell/vim-pydocstring', run = 'make install'}
+  use 'untitled-ai/jupyter_ascending.vim'
+  use 'GCBallesteros/jupytext.vim'
+  use 'kana/vim-textobj-line'
+  use 'kana/vim-textobj-user'
+  use 'GCBallesteros/vim-textobj-hydrogen'
+
+
+
+
+
   if packer_bootstrap then
     require("packer").sync()
   end
