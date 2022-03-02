@@ -24,3 +24,5 @@ telescope.setup({
 trouble.setup({
   icons = false,
 })
+
+telescope.load_extension "file_browser"

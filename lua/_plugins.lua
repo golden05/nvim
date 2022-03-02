@@ -39,6 +39,7 @@ return packer.startup(function()
     "nvim-telescope/telescope.nvim",
     requires = { "nvim-lua/plenary.nvim" },
   })
+  use {"nvim-telescope/telescope-file-browser.nvim"}
   use({
     "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
