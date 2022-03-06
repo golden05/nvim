@@ -62,6 +62,7 @@ local which_key = {
     ["c"] = { ":BufferClose!<CR>", "Close Buffer" },
     ["e"] = { ":Telescope file_browser <CR>", "File Browser" },
     ["f"] = { ":Telescope find_files <CR>", "Find File" },
+    ["g"] = { ":Telescope live_grep <CR>", "Live Grep" },
     ["h"] = { ":nohlsearch<CR>", "No Highlight" },
     b = {
       name = "Buffers",
