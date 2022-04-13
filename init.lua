@@ -11,4 +11,5 @@ vim.cmd("colorscheme tokyonight")
 
 -- important to import after colorscheme
 require("_statusline")
-require("_iron")
+local statusline = require('statusline')
+statusline.tabline = true

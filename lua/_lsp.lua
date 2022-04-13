@@ -1,3 +1,5 @@
+require 'lspconfig'.solargraph.setup{}
+
 local utils_ok, utils = pcall(require, "utils")
 if not utils_ok then
   return
@@ -55,6 +57,7 @@ lsp_status.config({
 })
 
 -- completion setup
+
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -82,6 +85,8 @@ cmp.setup({
   },
 })
 
+completeopt = menu,menuone,noselect
+
 -- function to attach completion when setting up lsp
 local on_attach = function(client)
   lsp_status.register_progress()
@@ -107,6 +112,20 @@ lsp_installer.settings({
     },
   },
 })
+
+local nvim_lsp = require('lspconfig')
+
+local servers = { "solargraph" }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+}
+end
+
+
 lsp_installer.on_server_ready(function(server)
   local opts = {
     on_attach = on_attach,
@@ -119,7 +138,7 @@ end)
 -- diagnostics
 vim.diagnostic.config({
   virtual_text = false,
-  underline = true,
+  underline = false,
   float = {
     source = "always",
   },
@@ -186,3 +205,4 @@ vim.api.nvim_set_keymap("i", "<C-E>", "<Plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("s", "<C-E>", "<Plug>luasnip-next-choice", {})
 
 require("luasnip.loaders.from_vscode").load()
+

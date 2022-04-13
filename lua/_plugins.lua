@@ -33,7 +33,10 @@ return packer.startup(function()
     "tamago324/nlsp-settings.nvim",
     "wbthomason/packer.nvim",
     "williamboman/nvim-lsp-installer",
+  })
+  use({
     "rafamadriz/friendly-snippets",
+    require("luasnip").filetype_extend("ruby", {"rails"})
   })
   use({
     "nvim-telescope/telescope.nvim",
@@ -83,23 +86,16 @@ return packer.startup(function()
   use("folke/tokyonight.nvim")
   use("EdenEast/nightfox.nvim")
 
+  use('beauwilliams/statusline.lua')
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
 
-  -- Python & Jupyter Notebooks
-  use 'bfredl/nvim-ipy'
-  use 'hkupty/iron.nvim'
-  use 'Vimjas/vim-python-pep8-indent'
-  use {'heavenshell/vim-pydocstring', run = 'make install'}
-  use 'untitled-ai/jupyter_ascending.vim'
-  use 'GCBallesteros/jupytext.vim'
-  use 'kana/vim-textobj-line'
-  use 'kana/vim-textobj-user'
-  use 'GCBallesteros/vim-textobj-hydrogen'
 
+  use("tpope/vim-rails")
+  use("tpope/vim-endwise")
+  use("thoughtbot/vim-rspec")
 
-
-
+  use("scrooloose/nerdtree")
 
   if packer_bootstrap then
     require("packer").sync()
