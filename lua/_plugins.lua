@@ -79,7 +79,7 @@ return packer.startup(function()
     -- nvim-autopairs
   use("windwp/nvim-autopairs")
     -- surround
-  use("blackCauldron7/surround.nvim")
+  use("ur4ltz/surround.nvim")
         -- gruvbox
   use({ "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } })
         -- tokyonight
