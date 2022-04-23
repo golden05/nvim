@@ -10,6 +10,7 @@ require("_whichkey")
 require("_null-ls")
 require("_terminal")
 require("_autopairs")
+require("_toggleterm")
 vim.cmd("colorscheme tokyonight")
 
 -- important to import after colorscheme

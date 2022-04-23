@@ -98,7 +98,7 @@ return packer.startup(function()
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
 
-
+  use("akinsho/toggleterm.nvim")
   use("tpope/vim-rails")
   use("tpope/vim-endwise")
   use("thoughtbot/vim-rspec")
