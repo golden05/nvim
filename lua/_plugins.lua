@@ -48,6 +48,10 @@ return packer.startup(function()
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
   })
   use({
+    'kyazdani42/nvim-tree.lua',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true },
+  })
+  use({
     "folke/which-key.nvim",
     config = function()
       require("which-key").setup({})
@@ -95,7 +99,7 @@ return packer.startup(function()
   use("tpope/vim-endwise")
   use("thoughtbot/vim-rspec")
 
-  use("scrooloose/nerdtree")
+---  use("scrooloose/nerdtree")
 
   if packer_bootstrap then
     require("packer").sync()
