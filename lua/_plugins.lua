@@ -84,7 +84,17 @@ return packer.startup(function()
       })
     end,
   })
-    -- nvim-autopairs
+  
+  use({
+    'junnplus/nvim-lsp-setup',
+    requires = {
+        'neovim/nvim-lspconfig',
+        'williamboman/nvim-lsp-installer',
+    }
+  })
+
+
+  -- nvim-autopairs
   use("windwp/nvim-autopairs")
     -- surround
   use("ur4ltz/surround.nvim")
@@ -93,7 +103,8 @@ return packer.startup(function()
         -- tokyonight
   use("folke/tokyonight.nvim")
   use("EdenEast/nightfox.nvim")
-
+  use('mfussenegger/nvim-dap')
+  use('suketa/nvim-dap-ruby')
   use('beauwilliams/statusline.lua')
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
