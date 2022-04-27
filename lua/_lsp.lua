@@ -1,4 +1,4 @@
-require 'lspconfig'.solargraph.setup{}
+require 'lspconfig'.solargraph.setup {}
 
 local utils_ok, utils = pcall(require, "utils")
 if not utils_ok then
@@ -85,7 +85,7 @@ cmp.setup({
   },
 })
 
-completeopt = menu,menuone,noselect
+completeopt = menu, menuone, noselect
 
 -- function to attach completion when setting up lsp
 local on_attach = function(client)
@@ -119,15 +119,16 @@ local util = nvim_lsp.util
 local system_name
 if vim.fn.has("mac") == 1 then
   system_name = "macOS"
+  local sumneko_root_path = vim.fn.stdpath("data") .. "/lsp_servers/sumneko_lua/extension/server/bin/lua-language-server"
 elseif vim.fn.has("unix") == 1 then
   system_name = "Linux"
+  local sumneko_root_path = vim.fn.stdpath("data") .. "/lsp_servers/lua/lua-language-server"
 elseif vim.fn.has("win32") == 1 then
   system_name = "Windows"
 else
   print("Unsupported system for sumneko")
 end
 
-local sumneko_root_path = vim.fn.stdpath("data") .. "/lsp_servers/lua/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
@@ -135,7 +136,7 @@ table.insert(runtime_path, "lua/?/init.lua")
 
 
 nvim_lsp.sumneko_lua.setup {
-  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua", "--locale=zh-cn"},
+  cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua", "--locale=zh-cn" },
   filetypes = { "lua" },
   log_level = 2,
   root_dir = util.root_pattern(".luarc.json", ".luacheckrc", ".stylua.toml", "selene.toml", ".git"),
@@ -149,7 +150,7 @@ nvim_lsp.sumneko_lua.setup {
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
+        globals = { 'vim' },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
@@ -173,7 +174,7 @@ for _, lsp in ipairs(servers) do
     flags = {
       debounce_text_changes = 150,
     }
-}
+  }
 end
 
 nvim_lsp.html.setup {
@@ -185,7 +186,7 @@ nvim_lsp.html.setup {
       css = true,
       javascript = true
     },
-    provideFormatter = true 
+    provideFormatter = true
   },
   settings = {}
 }
@@ -217,56 +218,55 @@ vim.diagnostic.config({
 
 
 local function prequire(...)
-local status, lib = pcall(require, ...)
-if (status) then return lib end
-    return nil
+  local status, lib = pcall(require, ...)
+  if (status) then return lib end
+  return nil
 end
 
 local luasnip = prequire('luasnip')
 local cmp = prequire("cmp")
 
 local t = function(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
 local check_back_space = function()
-    local col = vim.fn.col('.') - 1
-    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        return true
-    else
-        return false
-    end
+  local col = vim.fn.col('.') - 1
+  if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+    return true
+  else
+    return false
+  end
 end
 
 _G.tab_complete = function()
-    if cmp and cmp.visible() then
-        cmp.select_next_item()
-    elseif luasnip and luasnip.expand_or_jumpable() then
-        return t("<Plug>luasnip-expand-or-jump")
-    elseif check_back_space() then
-        return t "<Tab>"
-    else
-        cmp.complete()
-    end
-    return ""
+  if cmp and cmp.visible() then
+    cmp.select_next_item()
+  elseif luasnip and luasnip.expand_or_jumpable() then
+    return t("<Plug>luasnip-expand-or-jump")
+  elseif check_back_space() then
+    return t "<Tab>"
+  else
+    cmp.complete()
+  end
+  return ""
 end
 _G.s_tab_complete = function()
-    if cmp and cmp.visible() then
-        cmp.select_prev_item()
-    elseif luasnip and luasnip.jumpable(-1) then
-        return t("<Plug>luasnip-jump-prev")
-    else
-        return t "<S-Tab>"
-    end
-    return ""
+  if cmp and cmp.visible() then
+    cmp.select_prev_item()
+  elseif luasnip and luasnip.jumpable(-1) then
+    return t("<Plug>luasnip-jump-prev")
+  else
+    return t "<S-Tab>"
+  end
+  return ""
 end
 
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
 vim.api.nvim_set_keymap("i", "<C-E>", "<Plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("s", "<C-E>", "<Plug>luasnip-next-choice", {})
 
 require("luasnip.loaders.from_vscode").load()
-
