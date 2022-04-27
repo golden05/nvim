@@ -115,12 +115,27 @@ lsp_installer.settings({
 
 local nvim_lsp = require('lspconfig')
 local util = nvim_lsp.util
-local runtime_path = vim.split(package.path, ';')
+
+local system_name
+if vim.fn.has("mac") == 1 then
+  system_name = "macOS"
+elseif vim.fn.has("unix") == 1 then
+  system_name = "Linux"
+elseif vim.fn.has("win32") == 1 then
+  system_name = "Windows"
+else
+  print("Unsupported system for sumneko")
+end
+
+local sumneko_root_path = vim.fn.stdpath("data") .. "/lsp_servers/lua/lua-language-server"
+local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
+local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
+
 nvim_lsp.sumneko_lua.setup {
-  cmd = { "lua-language-server" },
+  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua", "--locale=zh-cn"},
   filetypes = { "lua" },
   log_level = 2,
   root_dir = util.root_pattern(".luarc.json", ".luacheckrc", ".stylua.toml", "selene.toml", ".git"),
