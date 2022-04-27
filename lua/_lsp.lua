@@ -116,13 +116,14 @@ lsp_installer.settings({
 local nvim_lsp = require('lspconfig')
 local util = nvim_lsp.util
 
+local sumneko_root_path
 local system_name
 if vim.fn.has("mac") == 1 then
   system_name = "macOS"
-  local sumneko_root_path = vim.fn.stdpath("data") .. "/lsp_servers/sumneko_lua/extension/server/bin/lua-language-server"
+  sumneko_root_path = vim.fn.stdpath("data") .. "/lsp_servers/sumneko_lua/extension/server"
 elseif vim.fn.has("unix") == 1 then
   system_name = "Linux"
-  local sumneko_root_path = vim.fn.stdpath("data") .. "/lsp_servers/lua/lua-language-server"
+  sumneko_root_path = vim.fn.stdpath("data") .. "/lsp_servers/lua/lua-language-server"
 elseif vim.fn.has("win32") == 1 then
   system_name = "Windows"
 else
