@@ -168,7 +168,7 @@ nvim_lsp.sumneko_lua.setup {
 
 
 
-local servers = { "solargraph" }
+local servers = { "solargraph", "html" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -178,6 +178,8 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()                                                                 
+capabilities.textDocument.completion.completionItem.snippetSupport = true   
 nvim_lsp.html.setup {
   cmd = { "vscode-html-language-server", "--stdio" },
   filetype = { "html" },
@@ -189,8 +191,11 @@ nvim_lsp.html.setup {
     },
     provideFormatter = true
   },
-  settings = {}
+  settings = {},
+  single_file_support = true
 }
+
+
 
 lsp_installer.on_server_ready(function(server)
   local opts = {
