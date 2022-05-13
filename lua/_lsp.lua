@@ -195,6 +195,39 @@ nvim_lsp.html.setup {
   single_file_support = true
 }
 
+nvim_lsp.tailwindcss.setup{
+  cmd = { "tailwindcss-language-server", "--stdio" },
+  filetypes = { "aspnetcorerazor", "astro", "astro-markdown", "blade", "django-html", "htmldjango", "edge", "eelixir", "ejs", "erb", "eruby", "gohtml", "haml", "handlebars", "hbs", "html", "html-eex", "heex", "jade", "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte" },
+  init_options = {
+                  userLanguages = {
+                  eelixir = "html-eex",
+                  eruby = "erb"
+                        }
+                  },
+  root_dir = util.root_pattern('tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.ts', 'package.json', 'node_modules', '.git'),
+  settings = {
+              tailwindCSS = {
+                              classAttributes = { "class", "className", "classList", "ngClass" },
+                              lint = {
+                                      cssConflict = "warning",
+                                      invalidApply = "error",
+                                      invalidConfigPath = "error",
+                                      invalidScreen = "error",
+                                      invalidTailwindDirective = "error",
+                                      invalidVariant = "error",
+                                      recommendedVariantOrder = "warning"
+                                      },
+                              validate = true
+                            }
+              }
+}
+
+nvim_lsp.tsserver.setup{
+  cmd = { "typescript-language-server", "--stdio" },
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+  init_options = { hostInfo = "neovim" },
+  root_dir = util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")
+}
 
 
 lsp_installer.on_server_ready(function(server)
