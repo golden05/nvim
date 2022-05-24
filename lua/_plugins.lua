@@ -115,7 +115,8 @@ return packer.startup(function()
   use("tpope/vim-endwise")
   use("thoughtbot/vim-rspec")
 
----  use("scrooloose/nerdtree")
+  use("windwp/emmet-ls")
+ 
 
   if packer_bootstrap then
     require("packer").sync()

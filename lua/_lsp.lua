@@ -114,6 +114,7 @@ lsp_installer.settings({
 })
 
 local nvim_lsp = require('lspconfig')
+local configs = require('lspconfig/configs')
 local util = nvim_lsp.util
 
 local sumneko_root_path
@@ -179,7 +180,24 @@ for _, lsp in ipairs(servers) do
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()                                                                 
-capabilities.textDocument.completion.completionItem.snippetSupport = true   
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+configs.emmet_ls = {
+  default_config = {
+    cmd = {'emmet-ls', '--stdio'};
+    filetypes = {'html', 'css'};
+    root_dir = function()
+      return vim.loop.cwd()
+    end;
+    settings = {};
+  };
+}
+
+nvim_lsp.emmet_ls.setup{
+  on_attach = on_attach;
+}
+
+
 nvim_lsp.html.setup {
   cmd = { "vscode-html-language-server", "--stdio" },
   filetype = { "html" },
