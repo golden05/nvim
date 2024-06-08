@@ -102,4 +102,5 @@ lspconfig.tailwindcss.setup {
     },
   },
 }
+
 require("luasnip").filetype_extend("ruby", { "rails" })
