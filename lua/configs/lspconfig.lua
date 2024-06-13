@@ -22,6 +22,24 @@ lspconfig.tsserver.setup {
   capabilities = capabilities,
 }
 
+lspconfig.pyright.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  cmd = { "pyright-languageserver", "--stdio" },
+  filetypes = { "python" },
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticMode = "openFileOnly",
+        useLibraryCodeForTypes = true,
+      },
+    },
+  },
+  single_file_support = true,
+}
+
 lspconfig.solargraph.setup {
   on_attach = on_attach,
   on_init = on_init,

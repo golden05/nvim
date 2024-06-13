@@ -5,6 +5,7 @@ local options = {
     html = { "prettier" },
     eruby = { "htmlbeautifier" },
     ruby = { "rubocop" },
+    python = { "pyink" },
   },
 
   format_on_save = {

@@ -30,6 +30,8 @@ return {
         "solargraph",
         "htmlbeautifier",
         "rubocop",
+        "pyright",
+        "pyink",
       },
     },
   },
