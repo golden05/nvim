@@ -26,7 +26,7 @@ return {
         "css-lsp",
         "prettier",
         "tailwindcss-language-server",
-        "pyright",
+        "basedpyright",
         "blue",
       },
     },
