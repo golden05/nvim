@@ -27,10 +27,12 @@ lspconfig.basedpyright.setup {
   filetypes = { "python" },
   settings = {
     basedpyright = {
+      disableTaggedHints = true,
       analysis = {
         autoSearchPaths = true,
         diagnosticMode = "openFileOnly",
         useLibraryCodeForTypes = true,
+        typeCheckingMode = "standard",
       },
     },
   },
