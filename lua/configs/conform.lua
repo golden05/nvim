@@ -3,8 +3,6 @@ local options = {
     lua = { "stylua" },
     css = { "prettier" },
     html = { "prettier" },
-    eruby = { "htmlbeautifier" },
-    ruby = { "rubocop" },
     python = { "blue" },
   },
 

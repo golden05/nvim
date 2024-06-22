@@ -22,35 +22,22 @@ lspconfig.tsserver.setup {
   capabilities = capabilities,
 }
 
--- lspconfig.pyright.setup {
--- on_attach = on_attach,
--- on_init = on_init,
--- capabilities = capabilities,
--- cmd = { "pyright-langserver", "--stdio" },
--- filetypes = { "python" },
--- settings = {
--- python = {
--- analysis = {
--- autoSearchPaths = true,
--- diagnosticMode = "openFileOnly",
--- useLibraryCodeForTypes = true,
--- },
--- },
--- },
--- single_file_support = true,
--- }
-
-lspconfig.pylyzer.setup {
+lspconfig.pyright.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  cmd = { "pyright-langserver", "--stdio" },
+  filetypes = { "python" },
   settings = {
     python = {
-      checkOnType = false,
-      diagnostics = true,
-      inlayHints = true,
-      smartCompletion = true,
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticMode = "openFileOnly",
+        useLibraryCodeForTypes = true,
+        autoImportCompletions = true,
+      },
     },
   },
-  cmd = { "pylyzer", "--server" },
-  filetypes = { "python" },
   single_file_support = true,
 }
 
