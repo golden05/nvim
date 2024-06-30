@@ -39,6 +39,25 @@ lspconfig.basedpyright.setup {
   single_file_support = true,
 }
 
+lspconfig.sourcekit.setup {
+  capabilities = {
+    workspace = {
+      didChangeWatchedFiles = {
+        dynamivRegistration = true,
+      },
+    },
+  },
+  root_dir = lspconfig.util.root_pattern(
+    "buildServer.json",
+    "*.xcodeproj",
+    "*.xcworkspace",
+    "compile_commands.json",
+    "Package.swift",
+    ".git"
+  ),
+  filetypes = { "swift" },
+}
+
 lspconfig.solargraph.setup {
   on_attach = on_attach,
   on_init = on_init,

@@ -4,6 +4,7 @@ local options = {
     css = { "prettier" },
     html = { "prettier" },
     python = { "blue" },
+    swift = { "swift-format" },
   },
 
   format_on_save = {
