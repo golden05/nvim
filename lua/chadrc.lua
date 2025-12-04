@@ -7,7 +7,7 @@ local M = {}
 
 M.base46 = {
 	theme = "onedark",
-
+  transparency = true,
 	-- hl_override = {
 	-- 	Comment = { italic = true },
 	-- 	["@comment"] = { italic = true },
@@ -15,10 +15,15 @@ M.base46 = {
 }
 
 -- M.nvdash = { load_on_startup = true }
--- M.ui = {
+M.ui = {
 --       tabufline = {
 --          lazyload = false
---      }
---}
+     -- }
+  statusline = {
+    enabled = true,
+    theme = "vscode_colored",
+    separator_style = "default",
+  }
+}
 
 return M
