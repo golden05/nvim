@@ -15,6 +15,21 @@ return {
   },
 
   {
+    "brianhuster/live-preview.nvim",
+    dependencies = {
+      -- You can choose one of the following pickers
+      "nvim-telescope/telescope.nvim",
+      "ibhagwan/fzf-lua",
+      "echasnovski/mini.pick",
+      "folke/snacks.nvim",
+    },
+    lazy = false,
+    config = function ()
+      require "configs.live-preview"
+    end,
+  },
+
+  {
     "mrcjkb/rustaceanvim",
     version = "^6",
     lazy = false,
