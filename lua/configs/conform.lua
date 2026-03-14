@@ -4,6 +4,7 @@ local options = {
     lua = { "stylua" },
     css = { "biome" },
     html = { "biome" },
+    markdown = { "prettierd" },
   },
 
   formatters = {

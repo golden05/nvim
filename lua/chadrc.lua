@@ -8,6 +8,9 @@ local M = {}
 M.base46 = {
 	theme = "onedark",
   transparency = true,
+  integrations = {
+    'render-markdown',
+  }
 	-- hl_override = {
 	-- 	Comment = { italic = true },
 	-- 	["@comment"] = { italic = true },

@@ -1,6 +1,6 @@
 require("nvchad.configs.lspconfig").defaults()
 local servers = { "postgres_lsp", "sourcekit", "html-lsp", "html", "cssls", "emmet-ls", "pyright", "rust_analyzer", "ts_ls",
-  "lemminx",
+  "lemminx","marksman",
   "tailwindcss", "eslint", "unocss" }
 vim.lsp.enable(servers)
 
