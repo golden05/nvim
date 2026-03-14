@@ -43,13 +43,14 @@ return {
   },
 
   {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    keys = { { "<leader>cp", ft = "markdown", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown Preview", }, },
-    build = function() vim.fn["mkdp#util#install"]() end,
+    "bullets-vim/bullets.vim",
+    ft = { "markdown", "text", "gitcommit" },
+    init = function()
+      vim.g.bullets_enabled_file_types = { "markdown", "text", "gitcommit" }
+      vim.g.bullets_set_mappings = 1
+      vim.g.bullets_checkbox_markers = '✗○◐●✓'
+    end,
   },
-
 
   {
     "nvim-mini/mini.surround",
