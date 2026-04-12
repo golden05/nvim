@@ -17,6 +17,25 @@ return {
   },
 
   {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-neotest/neotest-python",
+    },
+    config = function()
+      require("neotest").setup({
+        adapters = {
+          require("neotest-python")({
+            runner = "pytest"
+          }),
+        },
+      })
+    end,
+  },
+
+  {
     "brianhuster/live-preview.nvim",
     dependencies = {
       -- You can choose one of the following pickers

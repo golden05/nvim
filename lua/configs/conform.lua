@@ -5,6 +5,7 @@ local options = {
     css = { "biome" },
     html = { "biome" },
     markdown = { "prettierd" },
+    python = { "ruff" },
   },
 
   formatters = {
